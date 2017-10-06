@@ -1,10 +1,10 @@
-import { BootstrapingNgxAdminLtePage } from './app.po';
+import { NgxAdminLtePage } from './app.po';
 
-describe('bootstraping-ngx-admin-lte App', function() {
-  let page: BootstrapingNgxAdminLtePage;
+describe('ngx-admin-lte App', () => {
+  let page: NgxAdminLtePage;
 
   beforeEach(() => {
-    page = new BootstrapingNgxAdminLtePage();
+    page = new NgxAdminLtePage();
   });
 
   it('should display message saying app works', () => {

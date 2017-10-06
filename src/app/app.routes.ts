@@ -16,6 +16,7 @@ const routes: Routes = [
   {
     canActivate: [CanActivateGuard],
     children: [
+    { path: '', redirectTo: 'page/home', pathMatch: 'full' },
       {
         canActivate: [CanActivateGuard],
         component: HomeComponent,
@@ -28,7 +29,8 @@ const routes: Routes = [
       },
     ],
     component: LayoutsAuthComponent,
-    path: '',
+    path: ''
+    
   },
   // not logged routes
   {

@@ -3,15 +3,16 @@ import { User, UserService } from 'ngx-admin-lte';
 import { Router } from '@angular/router';
 import { Http, URLSearchParams } from '@angular/http';
 import swal from 'sweetalert2';
+declare var $: any;
 
 @Component({
   selector: 'app-login',
   styles: ['./login.css'],
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
-  private password: string;
-  private email: string;
+export class LoginComponent implements OnInit, OnDestroy {
+  public password: string;
+  public email: string;
 
   constructor(
     private userServ: UserService,
@@ -21,10 +22,12 @@ export class LoginComponent implements OnInit {
   }
 
   public ngOnInit() {
+    $("body").addClass("hold-transition login-page");
+    
     window.dispatchEvent( new Event( 'resize' ) );
   }
 
-  private login() {
+  public login() {
 
     let data = new URLSearchParams();
       data.append('username', this.email);
@@ -37,7 +40,7 @@ export class LoginComponent implements OnInit {
                 let userData = data.json();
                 let lastNameUser = userData.name.split(" ")[1] ? userData.name.split(" ")[1] : "";
                 let user1 = new User( {
-                      avatarUrl: 'public/assets/img/user2-160x160.jpg',
+                      avatarUrl: 'public/assets/img/user2-160x160.png',
                       email: userData.username,
                       firstname: userData.name.split(" ")[0],
                       lastname: lastNameUser
@@ -48,13 +51,17 @@ export class LoginComponent implements OnInit {
           this.userServ.setCurrentUser( user1 );
           localStorage.setItem('ssdUser', JSON.stringify({ username: userData.username, token: userData.token, firstname: userData.name.split(" ")[0] , lastname : lastNameUser }));
 
-          this.router.navigate( ['home'] );
+          this.router.navigate( ['page/home'] );
 
       }, error => {
           swal('Login Failed', 'Invalid Username or Password', 'error')
           console.log(error.json());
       });
 
+  }
+    
+  public ngOnDestroy() {
+    $("body").removeClass("login-page");
   }
  
 
