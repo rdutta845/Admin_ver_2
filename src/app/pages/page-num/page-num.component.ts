@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, OnInit, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BreadcrumbService } from 'ngx-admin-lte';
+import { User, BreadcrumbService } from 'ngx-admin-lte';
 import { DomSanitizer } from '@angular/platform-browser';
 declare var $: any;
 
@@ -17,6 +17,9 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
   public boxSection: any;
   public singleIframeHeight = "";
   public pages:Object;
+  // public userInfo:Object;
+  public name:any;
+  public email:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +28,9 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
     private cdRef:ChangeDetectorRef
   ) {
     // TODO
-        
+      this.name = JSON.parse(localStorage.getItem('ssdUser')).firstname+" "+JSON.parse(localStorage.getItem('ssdUser')).lastname;
+      this.email =  JSON.parse(localStorage.getItem('ssdUser')).username;
+      // console.log("name", this.name, "email", this.email);
       this.pages =   {
           "home": {
             "title": "Stores & Offers",
@@ -477,27 +482,27 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
             ]
           },
           ///////////////****Edited By Rahul****//////////////////////
-          "ne-shopping": {
-            "title": "Fashion & Accessories Shopping",
-            "titleSub" : "",
-            "layout": "box",
-            "section": [
-              {
-                "url": "https://docs.google.com/document/d/e/2PACX-1vSht8FamnX0AIYEM2yddIY4go6I6Bc9HXjUc520GajSFHgrO8sdOQVMz3f1XBE5zxosFCEnHIDITEk-/pub?embedded=true",
-                "title": "Fashion",
-                "type": "iframe",
-                "height": "100%"
-              },
-              {
-                "url": "https://docs.google.com/document/d/e/2PACX-1vROJgvn5VfZtqH9rNdAyVGGv3nUsnm7xsc-DHvEot37XrScJOqZ6gxkF_kTIFNZdvX9eax45r97uDEN/pub?embedded=true",
-                "title": "Accessories",
-                "type": "iframe",
-                "height": "100%"
-              }
+          // "ne-shopping": {
+          //   "title": "Fashion & Accessories Shopping",
+          //   "titleSub" : "",
+          //   "layout": "box",
+          //   "section": [
+          //     {
+          //       "url": "https://docs.google.com/document/d/e/2PACX-1vSht8FamnX0AIYEM2yddIY4go6I6Bc9HXjUc520GajSFHgrO8sdOQVMz3f1XBE5zxosFCEnHIDITEk-/pub?embedded=true",
+          //       "title": "Fashion",
+          //       "type": "iframe",
+          //       "height": "100%"
+          //     },
+          //     {
+          //       "url": "https://docs.google.com/document/d/e/2PACX-1vROJgvn5VfZtqH9rNdAyVGGv3nUsnm7xsc-DHvEot37XrScJOqZ6gxkF_kTIFNZdvX9eax45r97uDEN/pub?embedded=true",
+          //       "title": "Accessories",
+          //       "type": "iframe",
+          //       "height": "100%"
+          //     }
               
-            ]
-          },
-          "ne1-shopping": {
+          //   ]
+          // },
+          "fashion-guide": {
             "title": "Fashion & Accessories Shopping",
             "titleSub" : "",
             "layout": "tab",
@@ -517,7 +522,7 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
               
             ]
           },
-          "ne2-shopping": {
+          "appliances-guide": {
             "title": "Appliances",
             "titleSub" : "",
             "layout": "tab",
@@ -549,7 +554,7 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
               
             ]
           },
-          "ne3-shopping": {
+          "electronics-guide": {
             "title": "Electronics",
             "titleSub" : "",
             "layout": "tab",
@@ -568,7 +573,7 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
               }
             ]
           },
-          "ne4-shopping": {
+          "health-guide": {
             "title": "Health",
             "titleSub" : "",
             "layout": "tab",
@@ -582,7 +587,7 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
               
             ]
           },
-          "ne5-shopping": {
+          "cosmetics-guide": {
             "title": "Cosmetics",
             "titleSub" : "",
             "layout": "tab",
@@ -614,7 +619,7 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
               
             ]
           },
-          "ne6-shopping": {
+          "travel-guide": {
             "title": "Travel",
             "titleSub" : "",
             "layout": "tab",
@@ -634,7 +639,7 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
               
             ]
           },
-          "ne7-shopping": {
+          "furniture-guide": {
             "title": "Furniture",
             "titleSub" : "",
             "layout": "tab",
@@ -652,6 +657,51 @@ export class PageNumComponent implements OnInit, AfterViewInit, OnDestroy {
                 "height": "100%"
               }
               
+            ]
+          },
+          "electronics-assessment":{
+            "title": "Electronics Assessment",
+            "titleSub":"",
+            "layout":"tab",
+            "section": [
+              {
+                "url":"https://docs.google.com/forms/d/e/1FAIpQLSen_HsniZsCB3Pp_9-yE6r3F26Ya3OM2eXbczDJUB6zGiJjWw/viewform?embedded=true&entry.1449005772="+this.name+"&entry.1685270148="+this.email,
+                "title":"Mobile phones",
+                "type":"iframe",
+                "height":"100%"
+              }
+            ]
+          },
+          "appliances-assessment":{
+            "title": "Appliances Assessment",
+            "titleSub":"",
+            "layout":"tab",
+            "section": [
+              {
+                "url":"https://docs.google.com/forms/d/e/1FAIpQLSfehstWAZrT3-AYi8kLFfI8gr7i3uV3oV4Zjms7IjhrffmBEA/viewform?embedded=true&entry.1449005772="+this.name+"&entry.1685270148="+this.email,
+                "title":"Air Conditioners",
+                "type":"iframe",
+                "height":"100%"
+              }
+            ]
+          },
+          "travel-assessment":{
+            "title": "Appliances Assessment",
+            "titleSub":"",
+            "layout":"tab",
+            "section": [
+              {
+                "url":"https://docs.google.com/forms/d/e/1FAIpQLSfQStKI72NCDAidbQRXF5OMXlsnMNbcBN1yIfY_isCOx_2ssA/viewform?embedded=true&entry.1449005772="+this.name+"&entry.1685270148="+this.email,
+                "title":"Flights",
+                "type":"iframe",
+                "height":"100%"
+              },
+              {
+                "url":"https://docs.google.com/forms/d/e/1FAIpQLSeG7NvYvHFODh52oOqrc_ksrMxHmqHdnJkWgs0E7cLoVDfrsg/viewform?embedded=true&entry.1449005772="+this.name+"&entry.1685270148="+this.email,
+                "title":"Hotels",
+                "type":"iframe",
+                "height":"100%"
+              }
             ]
           },
           //////////////*****Ended By Rahul*****//////////////////////

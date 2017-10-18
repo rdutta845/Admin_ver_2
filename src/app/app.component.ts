@@ -15,6 +15,24 @@ export class AppComponent implements OnInit {
       'link': ['/page/home']
     },
     {
+      'title': 'User Info',
+      'icon': 'bullhorn',
+      'sublinks': [
+        {
+          'title': 'My Earning',
+          'link': ['/page/fashion-offers'],
+        },
+        {
+          'title': 'My Visit',
+          'link': ['/page/travel-offers'],
+        },
+        {
+          'title': 'My Profile',
+          'link': ['/page/recharge-bill-offer']
+        }
+      ]
+    },
+    {
       'title': 'Category Wise Offers',
       'icon': 'shopping-cart',
       'sublinks': [
@@ -37,13 +55,7 @@ export class AppComponent implements OnInit {
       {
 		  'title': 'Electronics',
 		  'link': ['/page/electronics-offers'],
-	  },
-     //////////////////*****************Edited By Rahul************////////////
-      {
-        'title':'Computer & Laptop',
-        'link': ['/page/laptop-desktop'],
-    }
-    /////////////////*****************Ended By Rahul*************/////////////
+	  }
 	 ]
     },
     {
@@ -102,34 +114,56 @@ export class AppComponent implements OnInit {
           'title': 'About SSD',
           'link': ['/page/about-ssd'],
         },
+        // {
+        //   'title': 'Fashion & Accessories Shopping ',
+        //   'link': ['/page/ne-shopping'],
+        // },
         {
-          'title': 'Fashion & Accessories Shopping ',
-          'link': ['/page/ne-shopping'],
-        },
-        {
-          'title': 'Fashion & Accessories Shopping(tab)',
-          'link': ['/page/ne1-shopping'],
+          'title': 'Fashion',
+          'link': ['/page/fashion-guide'],
         },
         {
           'title': 'Appliances',
-          'link': ['/page/ne2-shopping'],
+          'link': ['/page/appliances-guide'],
         },
         {
           'title': 'Electronics',
-          'link': ['/page/ne3-shopping'],
+          'link': ['/page/electronics-guide'],
         },
         {
           'title': 'Health',
-          'link': ['/page/ne4-shopping'],
+          'link': ['/page/health-guide'],
         },
         {
           'title': 'Cosmetics',
-          'link': ['/page/ne5-shopping'],
+          'link': ['/page/cosmetics-guide'],
         },
         {
           'title': 'Travel',
-          'link': ['/page/ne6-shopping'],
+          'link': ['/page/travel-guide'],
+        },
+         {
+          'title':'Furniture',
+          'link': ['/page/furniture-guide'],
         }
+      ]
+    },
+    {
+      'title': 'Shopping Assessment',
+      'icon': 'graduation-cap',
+      'sublinks': [
+        {
+          'title': 'Electronics',
+          'link': ['/page/electronics-assessment'],
+        },
+        {
+          'title': 'Appliances',
+          'link': ['/page/appliances-assessment'],
+        },
+        {
+          'title': 'Travel',
+          'link': ['/page/travel-assessment'],
+        },
       ]
     },
     {
