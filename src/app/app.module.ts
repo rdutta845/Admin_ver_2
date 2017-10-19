@@ -14,12 +14,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNumComponent } from './pages/page-num/page-num.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { DashComponent } from './pages/dashboard/dashboard.component';
 const pages = [
     HomeComponent,
     PageNumComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashComponent
 ];
 
 // main bootstrap

@@ -15,8 +15,13 @@ export class AppComponent implements OnInit {
       'link': ['/page/home']
     },
     {
+      'title': 'Dashboard',
+      'icon': 'dashboard',
+      'link': ['/dashboard']
+    },
+    {
       'title': 'User Info',
-      'icon': 'bullhorn',
+      'icon': 'user',
       'sublinks': [
         {
           'title': 'My Earning',
@@ -28,7 +33,7 @@ export class AppComponent implements OnInit {
         },
         {
           'title': 'My Profile',
-          'link': ['/page/recharge-bill-offer']
+          'link': ['/page/electronics-offers']
         }
       ]
     },
@@ -150,7 +155,7 @@ export class AppComponent implements OnInit {
     },
     {
       'title': 'Shopping Assessment',
-      'icon': 'graduation-cap',
+      'icon': 'file-text',
       'sublinks': [
         {
           'title': 'Electronics',
